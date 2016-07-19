@@ -13,8 +13,9 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "node_modules/.bin/ava test.js"
   },
+  "bin": "cli.js",
   "files": [
     "index.js"
   ],
@@ -28,6 +29,6 @@
     "converter"
   ],
   "devDependencies": {
-    "ava": "0.0.3"
+    "ava": "^0.15.2"
   }
 }

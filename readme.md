@@ -6,7 +6,8 @@
 ## Install
 
 ```sh
-$ npm install --save rgb-hex
+$ npm install --save rgb-hex   # locally as module
+$ npm install --global rgb-hex # globally as a tool
 ```
 
 
@@ -18,6 +19,16 @@ var rgbHex = require('rgb-hex');
 rgbHex(65, 131, 196);
 //=> 4183c4
 ```
+
+
+## CLI
+
+```sh
+$ rgb-hex 65 131 196
+# 4183c4
+```
+
+Run with the `--help` flag to see other usage options.
 
 
 ## Related
