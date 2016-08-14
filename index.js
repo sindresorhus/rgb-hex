@@ -1,6 +1,6 @@
 'use strict';
 /* eslint-disable no-mixed-operators */
-module.exports = function (red, green, blue) {
+module.exports = (red, green, blue) => {
 	if (typeof red !== 'number' ||
 		typeof green !== 'number' ||
 		typeof blue !== 'number' ||
