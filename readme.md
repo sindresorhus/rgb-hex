@@ -25,6 +25,7 @@ rgbHex('rgb(40, 42, 54)');
 
 ## Related
 
+- [rgb-hex-cli](https://github.com/sindresorhus/rgb-hex-cli) - CLI for this module
 - [hex-rgb](https://github.com/sindresorhus/hex-rgb) - Convert HEX color to RGB
 
 
