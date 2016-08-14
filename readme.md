@@ -17,6 +17,9 @@ const rgbHex = require('rgb-hex');
 
 rgbHex(65, 131, 196);
 //=> '4183c4'
+
+rgbHex('rgb(40, 42, 54)');
+//=> '282a36'
 ```
 
 
