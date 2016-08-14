@@ -5,7 +5,7 @@
 
 ## Install
 
-```sh
+```
 $ npm install --save rgb-hex
 ```
 
@@ -13,18 +13,18 @@ $ npm install --save rgb-hex
 ## Usage
 
 ```js
-var rgbHex = require('rgb-hex');
+const rgbHex = require('rgb-hex');
 
 rgbHex(65, 131, 196);
-//=> 4183c4
+//=> '4183c4'
 ```
 
 
 ## Related
 
-See [hex-rgb](https://github.com/sindresorhus/hex-rgb) for the inverse.
+- [hex-rgb](https://github.com/sindresorhus/hex-rgb) - Convert HEX color to RGB
 
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
