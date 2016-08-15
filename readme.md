@@ -1,6 +1,6 @@
 # rgb-hex [![Build Status](https://travis-ci.org/sindresorhus/rgb-hex.svg?branch=master)](https://travis-ci.org/sindresorhus/rgb-hex)
 
-> Convert RGB color to HEX
+> Convert RGB(A) color to HEX
 
 
 ## Install
@@ -20,6 +20,15 @@ rgbHex(65, 131, 196);
 
 rgbHex('rgb(40, 42, 54)');
 //=> '282a36'
+
+rgbHex(65, 131, 196, 0.2);
+//=> '4183c433'
+
+rgbHex(40, 42, 54, '75%');
+//=> '282a36c0'
+
+rgbHex('rgba(40, 42, 54, 75%)');
+//=> '282a36c0'
 ```
 
 
