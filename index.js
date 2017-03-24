@@ -1,6 +1,6 @@
 'use strict';
 /* eslint-disable no-mixed-operators */
-module.exports = (red, green, blue, alpha) => {
+module.exports = function (red, green, blue, alpha) {
 	const isPercent = (red + (alpha || '')).toString().includes('%');
 
 	if (typeof red === 'string') {
@@ -29,7 +29,7 @@ module.exports = (red, green, blue, alpha) => {
 		} else if (isPercent && alpha >= 0 && alpha <= 100) {
 			alpha = Math.round(255 * alpha / 100);
 		} else {
-			throw new TypeError(`Expected alpha value (${alpha}) as a fraction or percentage`);
+			throw new TypeError('Expected alpha value (' + alpha + ') as a fraction or percentage');
 		}
 		alpha = (alpha | 1 << 8).toString(16).slice(1);
 	} else {
