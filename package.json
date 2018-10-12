@@ -12,12 +12,20 @@
   "engines": {
     "node": ">=4"
   },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ],
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "build": "babel index.js --out-dir dist"
   },
   "files": [
     "index.js"
   ],
+  "main": "dist/index.js",
   "keywords": [
     "rgb",
     "hex",
@@ -28,6 +36,9 @@
     "converter"
   ],
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "ava": "*",
     "xo": "*"
   },
