@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save rgb-hex
+$ npm install rgb-hex
 ```
 
 

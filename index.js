@@ -4,12 +4,7 @@ module.exports = (red, green, blue, alpha) => {
 	const isPercent = (red + (alpha || '')).toString().includes('%');
 
 	if (typeof red === 'string') {
-		const res = red.match(/(0?\.?\d{1,3})%?\b/g).map(Number);
-		// TODO: use destructuring when targeting Node.js 6
-		red = res[0];
-		green = res[1];
-		blue = res[2];
-		alpha = res[3];
+		[red, green, blue, alpha] = red.match(/(0?\.?\d{1,3})%?\b/g).map(Number);
 	} else if (alpha !== undefined) {
 		alpha = parseFloat(alpha);
 	}
@@ -31,6 +26,7 @@ module.exports = (red, green, blue, alpha) => {
 		} else {
 			throw new TypeError(`Expected alpha value (${alpha}) as a fraction or percentage`);
 		}
+
 		alpha = (alpha | 1 << 8).toString(16).slice(1);
 	} else {
 		alpha = '';
@@ -38,3 +34,4 @@ module.exports = (red, green, blue, alpha) => {
 
 	return ((blue | green << 8 | red << 16) | 1 << 24).toString(16).slice(1) + alpha;
 };
+/* eslint-enable no-mixed-operators */
