@@ -14,7 +14,8 @@ module.exports = (red, green, blue, alpha) => {
 		typeof blue !== 'number' ||
 		red > 255 ||
 		green > 255 ||
-		blue > 255) {
+		blue > 255
+	) {
 		throw new TypeError('Expected three numbers below 256');
 	}
 
