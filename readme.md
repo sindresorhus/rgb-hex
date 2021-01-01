@@ -1,4 +1,4 @@
-# rgb-hex [![Build Status](https://travis-ci.org/sindresorhus/rgb-hex.svg?branch=master)](https://travis-ci.org/sindresorhus/rgb-hex)
+# rgb-hex
 
 > Convert RGB(A) color to HEX
 
