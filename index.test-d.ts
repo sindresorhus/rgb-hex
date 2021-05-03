@@ -1,5 +1,5 @@
 import {expectType} from 'tsd';
-import rgbHex = require('.');
+import rgbHex from './index.js';
 
 expectType<string>(rgbHex('rgb(40, 42, 54)'));
 expectType<string>(rgbHex(65, 131, 196));

@@ -1,5 +1,5 @@
 import test from 'ava';
-import rgbHex from '.';
+import rgbHex from './index.js';
 
 test('main', t => {
 	t.is(rgbHex(0, 0, 0), '000000');

@@ -3,7 +3,7 @@ Convert RGB(A) color to HEX.
 
 @example
 ```
-import rgbHex = require('rgb-hex');
+import rgbHex from 'rgb-hex';
 
 rgbHex(65, 131, 196);
 //=> '4183c4'
@@ -21,7 +21,5 @@ rgbHex('rgba(40, 42, 54, 75%)');
 //=> '282a36bf'
 ```
 */
-declare function rgbHex(rgba: string): string;
-declare function rgbHex(red: number, green: number, blue: number, alpha?: string | number): string;
-
-export = rgbHex;
+export default function rgbHex(rgba: string): string;
+export default function rgbHex(red: number, green: number, blue: number, alpha?: string | number): string; // eslint-disable-line  no-redeclare

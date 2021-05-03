@@ -1,12 +1,10 @@
-'use strict';
-/* eslint-disable no-mixed-operators */
-module.exports = (red, green, blue, alpha) => {
+export default function rgbHex(red, green, blue, alpha) {
 	const isPercent = (red + (alpha || '')).toString().includes('%');
 
 	if (typeof red === 'string') {
-		[red, green, blue, alpha] = red.match(/(0?\.?\d{1,3})%?\b/g).map(Number);
+		[red, green, blue, alpha] = red.match(/(0?\.?\d{1,3})%?\b/g).map(component => Number(component));
 	} else if (alpha !== undefined) {
-		alpha = parseFloat(alpha);
+		alpha = Number.parseFloat(alpha);
 	}
 
 	if (typeof red !== 'number' ||
@@ -28,11 +26,12 @@ module.exports = (red, green, blue, alpha) => {
 			throw new TypeError(`Expected alpha value (${alpha}) as a fraction or percentage`);
 		}
 
-		alpha = (alpha | 1 << 8).toString(16).slice(1);
+		alpha = (alpha | 1 << 8).toString(16).slice(1); // eslint-disable-line no-mixed-operators
 	} else {
 		alpha = '';
 	}
 
+	// TODO: Remove this ignore comment.
+	// eslint-disable-next-line no-mixed-operators
 	return ((blue | green << 8 | red << 16) | 1 << 24).toString(16).slice(1) + alpha;
-};
-/* eslint-enable no-mixed-operators */
+}
