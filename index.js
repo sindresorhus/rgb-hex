@@ -2,7 +2,7 @@ export default function rgbHex(red, green, blue, alpha) {
 	const isPercent = (red + (alpha || '')).toString().includes('%');
 
 	if (typeof red === 'string') {
-		[red, green, blue, alpha] = red.match(/(0?\.?\d{1,3})%?\b/g).map(component => Number(component));
+		[red, green, blue, alpha] = red.match(/(0?\.?\d+)%?\b/g).map(component => Number(component));
 	} else if (alpha !== undefined) {
 		alpha = Number.parseFloat(alpha);
 	}
