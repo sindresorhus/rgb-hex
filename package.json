@@ -1,6 +1,6 @@
 {
 	"name": "rgb-hex",
-	"version": "4.0.1",
+	"version": "4.1.0",
 	"description": "Convert RGB(A) color to HEX",
 	"license": "MIT",
 	"repository": "sindresorhus/rgb-hex",
