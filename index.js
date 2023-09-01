@@ -1,8 +1,18 @@
-export default function rgbHex(red, green, blue, alpha) {
-	const isPercent = (red + (alpha || '')).toString().includes('%');
+// TODO: Remove this ignore comment.
+// eslint-disable-next-line no-mixed-operators
+const toHex = (red, green, blue, alpha) => ((blue | green << 8 | red << 16) | 1 << 24).toString(16).slice(1) + alpha;
 
-	if (typeof red === 'string') {
-		[red, green, blue, alpha] = red.match(/(0?\.?\d+)%?\b/g).map(component => Number(component));
+export default function rgbHex(red, green, blue, alpha) {
+	let isPercent = (red + (alpha || '')).toString().includes('%');
+
+	if (typeof red === 'string' && !green) { // Single string parameter.
+		const parsed = parseCssRgbString(red);
+		if (!parsed) {
+			throw new TypeError('Invalid or unsupported color format.');
+		}
+
+		isPercent = false;
+		[red, green, blue, alpha] = parsed;
 	} else if (alpha !== undefined) {
 		alpha = Number.parseFloat(alpha);
 	}
@@ -31,7 +41,33 @@ export default function rgbHex(red, green, blue, alpha) {
 		alpha = '';
 	}
 
-	// TODO: Remove this ignore comment.
-	// eslint-disable-next-line no-mixed-operators
-	return ((blue | green << 8 | red << 16) | 1 << 24).toString(16).slice(1) + alpha;
+	return toHex(red, green, blue, alpha);
 }
+
+const parseCssRgbString = input => {
+	const parts = input.replace(/rgba?\(([^)]+)\)/, '$1').split(/[,\s/]+/).filter(Boolean);
+	if (parts.length < 3) {
+		return;
+	}
+
+	const parseValue = (value, max) => {
+		value = value.trim();
+
+		if (value.endsWith('%')) {
+			return Math.min(Number.parseFloat(value) * max / 100, max);
+		}
+
+		return Math.min(Number.parseFloat(value), max);
+	};
+
+	const red = parseValue(parts[0], 255);
+	const green = parseValue(parts[1], 255);
+	const blue = parseValue(parts[2], 255);
+	let alpha;
+
+	if (parts.length === 4) {
+		alpha = parseValue(parts[3], 1);
+	}
+
+	return [red, green, blue, alpha];
+};
