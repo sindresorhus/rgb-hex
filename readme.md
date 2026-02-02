@@ -4,8 +4,8 @@
 
 ## Install
 
-```
-$ npm install rgb-hex
+```sh
+npm install rgb-hex
 ```
 
 ## Usage
